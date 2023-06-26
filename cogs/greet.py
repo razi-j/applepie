@@ -1,5 +1,5 @@
 import discord
-from discord import guild, Member
+from discord import Member
 from discord.ext import commands
 from discord.utils import get
 
@@ -14,13 +14,13 @@ class greet(commands.Cog):
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         if isinstance(error, commands.CommandNotFound):
-            await ctx.send("OOPS! That command doesn't exist!", delete_after=10)
+            await ctx.reply("OOPS! That command doesn't exist!", delete_after=10)
         elif isinstance(error, commands.MissingPermissions):
-            await ctx.send(f"Hey {ctx.author.mention}!! You don't have the permissions to do that command!", delete_after=10)
+            await ctx.reply(f"Hey {ctx.author.mention}!! You don't have the permissions to do that command!", delete_after=10)
         elif isinstance(error, commands.MissingRequiredArgument):
-            await ctx.send(f"Hey {ctx.author.mention}!! Check `.help`, you're missing some parameters for this command.", delete_after=10)
+            await ctx.reply(f"Hey {ctx.author.mention}!! Check `.help`, you're missing some parameters for this command.", delete_after=10)
         else:
-            await ctx.send("Well... this is awkward... there's an error and I can't do that command!", delete_after=10)
+            await ctx.reply("Well... this is awkward... there's an error and I can't do that command!", delete_after=10)
     
     @commands.Cog.listener()
     async def on_member_join(self, member:Member):
@@ -32,7 +32,6 @@ class greet(commands.Cog):
             pic = member.default_avatar.url
         
         greeter = discord.Embed(
-            title="*Welcome!!*",
             colour=discord.Color.dark_green()
         )
         greeter.set_thumbnail(url=pic)
