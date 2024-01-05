@@ -8,8 +8,8 @@ class HELP(commands.Cog):
     
 
     @commands.hybrid_command(name='help', description="Sends Help!")
-    @app_commands.guilds(1114623410950115508)
-    async def send_bot_help(self,ctx):
+    @app_commands.guilds(1114623410950115508, )
+    async def help(self,ctx):
         helpembed = discord.Embed(
                 title="**Apple Pie Commands**",
                 colour=discord.Colour.dark_green()
