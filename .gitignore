@@ -1,3 +1,4 @@
 key
 applepie/*
 .vim/*
+applepie/cogs/__pycache__/*

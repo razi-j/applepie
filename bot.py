@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import os
 import asyncio
+import mariadb
 
 with open("key", "r") as f:
     key = f.readline()
